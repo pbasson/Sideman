@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: b5ca0cc9ddbf6824bb587e7eb947b6b3
+timeCreated: 1500411817
+licenseType: Free
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences:
+  - barPrefab: {fileID: 1831107321700808, guid: ad22d458730abfa45a396f2a1967944d,
+      type: 2}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
