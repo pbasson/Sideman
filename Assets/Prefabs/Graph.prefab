@@ -64,7 +64,7 @@ MonoBehaviour:
   EndPrefab: {fileID: 1134787863185794, guid: fc81ae934cf92483cb6587a66bb93beb, type: 2}
   collectable: {fileID: 1570537819870338, guid: 920bd2ff842164973b7b1a285a66d41e,
     type: 2}
-  EnemyPrefab: {fileID: 1894452344777290, guid: 136d8e6a7308844b0aca2932b45cfb9b,
+  EnemyPrefab: {fileID: 1336576335583450, guid: 136d8e6a7308844b0aca2932b45cfb9b,
     type: 2}
   x: 15
   y: 30
