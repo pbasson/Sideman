@@ -49,7 +49,8 @@ public class Graph : MonoBehaviour
             cord = new IntVec2(R1, R2);
             if ( isSolid[R1,R2] )
             {
-                CreateEnemy(cord);
+                        //CreateEnemy(cord);
+                        CreateDuo(cord, EnemyPrefab, enemyList);
             }
           }
         }
@@ -70,7 +71,8 @@ public class Graph : MonoBehaviour
             cord = new IntVec2(R1, R2);
             if (isSolid[R1,R2])
             {
-              CreateCollect(cord);
+                    //CreateCollect(cord);
+                    CreateDuo(cord,collectable,collectables);
             }
           }
         }
@@ -193,6 +195,15 @@ public class Graph : MonoBehaviour
         collectables.Add(collectable);
     }
 
+    private void CreateDuo(IntVec2 cord, GameObject duoPrefab, List<GameObject> gameList)
+    {
+        GameObject createDuo = Instantiate(duoPrefab) as GameObject;
+        cell[cord.x, cord.y] = createDuo;
+        createDuo.transform.localPosition = new Vector2(cord.x * 11.5f, cord.y + 2f);
+        createDuo.transform.parent = transform;
+        isSolid[cord.x, cord.y] = false;
+        gameList.Add(duoPrefab);
+    }
 
     private void CreateFloor(IntVec2 cord)
     {
