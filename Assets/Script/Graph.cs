@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System.Collections;
+using av = ApplicationVariable;
 
 public class Graph : MonoBehaviour
 {
@@ -105,17 +106,33 @@ public class Graph : MonoBehaviour
           {
               cord = new IntVec2(i, j);
 
-              if (j == 0)
-              { CreateFloor(cord);}
+                if (j == 0)
+                {
+                    CreateLevel(cord, GroundPrefab, av.Names.ground);
+                }
+                   // CreateFloor(cord);}
 
               if (j == size.y - 1)
-              { CreateCeiling(cord); }
+              {
+                    CreateLevel(cord, CeilingPrefab, av.Names.ceiling);
+                   // CreateCeiling(cord);
+                }
 
               if( j <= size.y && i == 0 )
-              { CreateStart(cord); }
+              {
+                    CreateLevel(cord, StartPrefab, av.Names.start, av.Names.startVal);
+                    //CreateStart(cord);
+                }
 
               if( i == size.x - 1 )
-              { CreateEnd(cord); }
+              {
+                    CreateLevel(cord, EndPrefab, av.Names.end, av.Names.endVal );
+                 //   CreateEnd(cord);
+                }
+                if (j % 13 == 0)
+                {
+                    CreateLevel(cord, BackgroundPrefab, av.Names.backGround, 0, av.Names.bgVal);
+                }
            }
         }
     }
@@ -259,6 +276,15 @@ public class Graph : MonoBehaviour
         background.name = "Background: " + cord.x + ", " + cord.y;
         background.transform.localPosition = new Vector2(cord.x* 11.5f, cord.y+6f);
         background.transform.parent = transform;
+    }
+
+    private void CreateLevel(IntVec2 cord, GameObject gamePrefab, string name, float space = 0, float back= 0 )
+    {
+        GameObject gameInst = Instantiate(gamePrefab) as GameObject;
+        cell[cord.x, cord.y] = gameInst;
+        gameInst.name = name + cord.x + cord.y;
+        gameInst.transform.localPosition = new Vector2(cord.x*11.5f + space, cord.y + back);
+        gameInst.transform.parent = transform; 
     }
 
 }

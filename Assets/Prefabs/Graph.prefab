@@ -55,7 +55,7 @@ MonoBehaviour:
     type: 2}
   CeilingPrefab: {fileID: 1482925256628708, guid: 261940a4b4981d941bbc3b571ff6caa5,
     type: 2}
-  SpawnPrefab: {fileID: 1770811178708538, guid: b1092006e1caa4a648c8f20c127a1e73,
+  SpawnPrefab: {fileID: 1155169606486678, guid: 5f60abd7a969a2345bfba3dd49cc8bee,
     type: 2}
   BackgroundPrefab: {fileID: 1294531297641920, guid: 3a7cf177b0dabf54e8c86aef6f773ce3,
     type: 2}

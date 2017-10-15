@@ -51,6 +51,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\Script\ApplicationVariable.cs" />
      <Compile Include="Assets\Script\BackGround.cs" />
      <Compile Include="Assets\Script\BombEnemy.cs" />
      <Compile Include="Assets\Script\Collectable.cs" />
