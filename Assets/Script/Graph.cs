@@ -26,26 +26,26 @@ public class Graph : MonoBehaviour
         size = new IntVec2(x,y);
         cell = new GameObject[size.x, size.y];
         Step(size);
-        SpawnCol(size, EnemyPrefab, enemyList);
-        SpawnCol(size, collectable, collectables);
+        SpawnCol(size, EnemyPrefab, enemyList, av.BoolSet.collect);
+        SpawnCol(size, collectable, collectables, av.BoolSet.collect);
     }
 
-    private void SpawnCol(IntVec2 cord, GameObject gamePrefab, List<GameObject> gameList)
+    private void SpawnCol(IntVec2 cord, GameObject gamePrefab, List<GameObject> gameList, bool boolSet)
     {
-        for (int i = 0; i < size.x /2; i++)
+        for (int i = 0; i < size.x/2; i++)
         {
             for (int j = 0; j < size.y; j++)
-            {
-                int R1 = Random.Range(0,size.x);
-                int R2 = Random.Range(0, size.y);
-                cord = new IntVec2(R1, R2);
-                if (isSolid[R1,R2])
-                {
-                        CreateDuo(cord,gamePrefab, gameList);
-                }
-            }
+            { SpawnRand(cord, gamePrefab, gameList, boolSet); }
         }
-      
+    }
+
+    private void SpawnRand(IntVec2 cord, GameObject gamePrefab, List<GameObject> gameList, bool boolSet)
+    {
+        int R1 = Random.Range(0, size.x);
+        int R2 = Random.Range(0, size.y);
+        cord = new IntVec2(R1, R2);
+        if (isSolid[R1, R2])
+        { CreateDuo(cord, gamePrefab, gameList, boolSet); }
     }
 
     private void Step(IntVec2 cord)
@@ -87,7 +87,8 @@ public class Graph : MonoBehaviour
 
             if (i % 2 == 0 && j == 4)
             {
-                CreateSpawn(cord);
+                //CreateSpawn(cord);
+                CreateDuo(cord, SpawnPrefab, null, av.BoolSet.platform);
             }
             else if (j == 8 && i % 2 != 0)
             {
@@ -136,13 +137,13 @@ public class Graph : MonoBehaviour
         }
     }
 
-    private void CreateDuo(IntVec2 cord, GameObject duoPrefab, List<GameObject> gameList)
+    private void CreateDuo(IntVec2 cord, GameObject duoPrefab, List<GameObject> gameList, bool Solid)
     {
         GameObject createDuo = Instantiate(duoPrefab) as GameObject;
         cell[cord.x, cord.y] = createDuo;
         createDuo.transform.localPosition = new Vector2(cord.x * 11.5f, cord.y + 2f);
         createDuo.transform.parent = transform;
-        isSolid[cord.x, cord.y] = false;
+        isSolid[cord.x, cord.y] = Solid;
         gameList.Add(duoPrefab);
     }
 
