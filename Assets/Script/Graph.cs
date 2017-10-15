@@ -34,7 +34,7 @@ public class Graph : MonoBehaviour
         SpawnStep(size);
         CollectStep(size);
         EnemySet(size);
-        BackgroundStep(size);
+        //BackgroundStep(size);
     }
 
     private void EnemySet(IntVec2 cord)
@@ -91,7 +91,7 @@ public class Graph : MonoBehaviour
           if (j % 13 ==0)
           {
             cord = new IntVec2(i, j);
-            CreateBackground(cord);
+           // CreateBackground(cord);
           }
         }
       }
