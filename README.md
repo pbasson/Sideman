@@ -1,9 +1,26 @@
-Sideman is 2D side scroller platformer game. This Game was built using Unity.
+# Sideman By Preetpal Basson
 
-This game has a procedural generation for the level design. This includes walls, floor, ceiling, collectables & bombs. 
+## Overview
 
-Gameplay Controls
+Sideman is a 2D side-scrolling platformer game built using Unity. It features procedural generation for level design, including walls, floors, ceilings, collectibles, and bombs."
 
-Left: A
-Right: D
-Up: Space/W
+## Features
+
+| Languages |
+|---|
+| C# |
+
+### Gameplay Controls
+
+| Control | Button |
+|---|---|
+| Left | A |
+| Right | D |
+| Up | Space/W |
+
+
+# END
+
+
+
+
